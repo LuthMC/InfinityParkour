@@ -1,0 +1,14 @@
+name: InfinityParkour
+main: Luthfi\InfinityParkour\Main
+version: 0.0.1
+api: 5.0.0
+author: Luthfi
+commands:
+  parkour:
+    description: Start the InfinityParkour course
+    usage: "/parkour"
+    permission: infinityparkour.use
+permissions:
+  infinityparkour.use:
+    description: Allows the player to use InfinityParkour
+    default: true
