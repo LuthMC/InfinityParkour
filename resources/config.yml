@@ -1,0 +1,13 @@
+# InfinityParkour Configuration
+
+default-block: grass
+
+difficulty: 
+  max_jump_distance: 4
+
+scoreboard:
+  title: "&aParkour Scoreboard"
+  lines:
+    - "&eDistance: {distance}"
+    - "&aPlayer: {player}"
+    - "&cGoal: Reach the end!"
