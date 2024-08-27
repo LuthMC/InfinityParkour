@@ -141,11 +141,9 @@ class Main extends PluginBase implements Listener {
 class ParkourTask extends \pocketmine\scheduler\Task {
 
     private $level;
-    private $plugin;
 
     public function __construct(Level $level, Main $plugin) {
         $this->level = $level;
-        $this->plugin = $plugin;
     }
 
     public function onRun(int $currentTick) {
