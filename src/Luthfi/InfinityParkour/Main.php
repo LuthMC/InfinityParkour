@@ -8,14 +8,12 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\player\Player;
 use pocketmine\utils\Config;
-use pocketmine\level\Level;
-use pocketmine\level\Position;
-use pocketmine\level\generator\GeneratorManager;
+use pocketmine\world\generator\GeneratorManager;
 use pocketmine\scheduler\TaskScheduler;
 use pocketmine\block\Block;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\command\ConsoleCommandSender;
+use pocketmine\console\ConsoleCommandSender;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerDeathEvent;
@@ -24,9 +22,9 @@ use pocketmine\event\entity\EntityDamageByBlockEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\math\Vector3;
-use pocketmine\level\generator\Flat;
+use pocketmine\world\generator\Flat;
 use pocketmine\utils\TextFormat as TF;
-use pocketmine\level\generator\GenerationOptions;
+use pocketmine\world\generator\FlatGeneratorOptions;
 
 class Main extends PluginBase implements Listener {
 
@@ -34,13 +32,13 @@ class Main extends PluginBase implements Listener {
     private $distances = [];
     private $config;
 
-    public function onEnable() {
+    public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveDefaultConfig();
         $this->config = $this->getConfig();
     }
 
-    public function onDisable() {
+    public function onDisable(): void {
         foreach ($this->parkourWorlds as $world) {
             $this->deleteWorld($world);
         }
